@@ -1,0 +1,2 @@
+Hello from the OpenSSL lab.
+This message will be encrypted with RSA and AES-256.
