@@ -1,0 +1,76 @@
+OpenSSL File Encryption Lab
+Objective
+
+This lab demonstrates the use of OpenSSL for encrypting and decrypting files using both:
+
+RSA (Asymmetric Cryptography)
+
+AES-256 (Symmetric Cryptography)
+
+It covers key generation, encryption/decryption, and a short analysis of performance and use cases.
+
+Tools Used
+
+OpenSSL 3.5.3
+
+Git Bash on Windows
+
+Step-by-Step Implementation
+Create the original text file
+cat > message.txt << 'EOF'
+Hello from the OpenSSL lab.
+This message will be encrypted with RSA and AES-256.
+EOF
+Generate RSA key pair
+# Private key (3072-bit)
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:3072 -out private.pem
+
+# Public key
+openssl rsa -in private.pem -pubout -out public.pem
+
+RSA Encryption / Decryption
+# Encrypt with public key
+openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt \
+-out message_rsa_encrypted.bin -pkeyopt rsa_padding_mode:oaep \
+-pkeyopt rsa_oaep_md:sha256
+
+# Decrypt with private key
+openssl pkeyutl -decrypt -inkey private.pem -in message_rsa_encrypted.bin \
+-out message_rsa_decrypted.txt -pkeyopt rsa_padding_mode:oaep \
+-pkeyopt rsa_oaep_md:sha256
+
+Verify:
+
+diff -u message.txt message_rsa_decrypted.txt && echo "RSA OK"
+
+AES-256 Encryption / Decryption
+
+Generate random AES key and IV (hex format):
+
+openssl rand -hex 32 > aes_key.hex
+openssl rand -hex 16 > aes_iv.hex
+
+Encrypt:
+
+openssl enc -aes-256-cbc -in message.txt -out message_aes_encrypted.bin \
+-K $(cat aes_key.hex) -iv $(cat aes_iv.hex)
+
+Decrypt:
+
+openssl enc -d -aes-256-cbc -in message_aes_encrypted.bin \
+-out message_aes_decrypted.txt -K $(cat aes_key.hex) -iv $(cat aes_iv.hex)
+
+Verify:
+
+diff -u message.txt message_aes_decrypted.txt && echo "AES OK"
+
+Files Included
+File	Description
+message.txt	Original plaintext file
+public.pem, private.pem	RSA public/private key pair
+message_rsa_encrypted.bin	RSA-encrypted data
+message_rsa_decrypted.txt	Decrypted RSA output
+aes_key.hex, aes_iv.hex	AES-256 encryption key and IV in hex format
+message_aes_encrypted.bin	AES-encrypted data
+message_aes_decrypted.txt	Decrypted AES output
+rsa_vs_aes.txt	Comparison of RSA vs AES performance and use cases
