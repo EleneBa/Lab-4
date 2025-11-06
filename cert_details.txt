@@ -1,0 +1,49 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            7f:f3:2d:6b:40:9d:15:d5:96:5b:05:87:3a:7c:72:e0
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=US, O=Google Trust Services LLC, CN=GTS Root R4
+        Validity
+            Not Before: Dec 13 09:00:00 2023 GMT
+            Not After : Feb 20 14:00:00 2029 GMT
+        Subject: C=US, O=Google Trust Services, CN=WE2
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:35:7e:1f:f2:14:ed:90:7d:e1:9e:2a:34:43:86:
+                    c1:d5:96:e8:27:70:df:9e:04:cb:a9:ca:86:79:0b:
+                    08:4d:46:8a:c2:74:a4:bb:d9:bf:ee:fd:23:d7:38:
+                    f3:4b:ef:54:17:e1:be:e7:ca:55:25:a8:0c:30:ac:
+                    2d:5d:4e:a1:51
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Certificate Sign, CRL Sign
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Subject Key Identifier: 
+                75:BE:C4:77:AE:89:F6:44:37:7D:CF:B1:68:1F:1D:1A:EB:DC:34:59
+            X509v3 Authority Key Identifier: 
+                80:4C:D6:EB:74:FF:49:36:A3:D5:D8:FC:B5:3E:C5:6A:F0:94:1D:8C
+            Authority Information Access: 
+                CA Issuers - URI:http://i.pki.goog/r4.crt
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://c.pki.goog/r/r4.crl
+
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.2.1
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:64:02:30:0b:bd:b8:36:55:c8:35:a3:d2:d9:7d:39:73:d3:
+        f7:f7:82:b8:09:d1:81:6f:e5:64:45:db:de:aa:c0:0e:45:12:
+        8f:ac:93:e8:1f:60:ec:2e:7e:44:2c:22:94:91:ec:ac:02:30:
+        2f:df:0c:90:76:4c:2d:69:61:d5:4f:fd:98:98:18:84:db:34:
+        ea:98:ec:9b:cd:88:62:ff:d2:65:e5:33:6a:9a:0c:ed:23:49:
+        38:2f:51:bf:91:d0:12:a2:c9:38:38:da

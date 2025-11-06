@@ -1,0 +1,16 @@
+1. TLS Handshake Summary
+The TLS handshake is the process that establishes a secure session between a client and a server.
+It includes Client Hello, Server Hello, Certificate exchange, key generation, and encrypted communication setup.
+
+2. MITM Protection
+TLS prevents man-in-the-middle attacks using:
+- Server authentication via digital certificates
+- Encrypted key exchange using public-key cryptography
+- Message integrity validation through HMAC
+- Session keys unique to each connection
+
+3. TLS Usage in HTTPS
+When HTTPS is used, TLS encrypts the entire HTTP communication between the browser and web server.
+It ensures that sensitive data such as credentials, payment info, or messages cannot be read or modified.
+
+4. Certificate Information in cert screenshot
